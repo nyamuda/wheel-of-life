@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+    <style type="text/css">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+
+        #chartdiv {
+            width: 100%;
+            height: 37.5rem;
+            transform: scale(0);
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            top: -2rem;
+        }
+
+        .areas {
+            text-align: center;
+            margin-bottom: 15px;
+            min-height: 95px;
+        }
+
+        .areas .value {
+            display: inline-block;
+            font-size: 1.3em;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        .areas .value:hover {
+            background: #ecc;
+        }
+
+
+
+        .btn {
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid #e74c3c;
+            border-radius: 0.6em;
+            color: #e74c3c;
+            cursor: pointer;
+            display: -webkit-box;
+            display: flex;
+            align-self: center;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1;
+            margin: 20px;
+            padding: 1rem;
+            text-decoration: none;
+            text-align: center;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin: auto;
+            width: auto;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            color: #fff;
+            outline: 0;
+        }
+
+        .first {
+            -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+            transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+        }
+
+        .first:hover {
+            box-shadow: 0 0 40px 40px #e74c3c inset;
+        }
+
+        #result-block {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            top: -4rem;
+            display: none;
+        }
+
+        #thank {
+            width: 60%;
+            margin: auto;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        #title-wheel {
+            font-size: 2rem;
+        }
+
+        #start-btn,
+        #rate-heading {
+            width: 100%;
+            text-align: center;
+            font-size: 1.2rem;
+            position: relative
+        }
+        #wheel-container {
+           
+        }
+        
+        @media (max-width:720px) {
+            #chartdiv {
+                
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+    <div id="start-btn">
+     <!--   <button class="btn first">Start</button> -->
+    </div>
+    <div id="rate-heading">
+        <p>Rate your current level of satisfaction for this area of your life.</p>
+    </div>
+    <div id="wheel-container">
+        <div class="areas">
+            <div class="area">
+                <h3>Health</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(0, 1);">1</div>
+                    <div class="value" onclick="setValue(0, 2);">2</div>
+                    <div class="value" onclick="setValue(0, 3);">3</div>
+                    <div class="value" onclick="setValue(0, 4);">4</div>
+                    <div class="value" onclick="setValue(0, 5);">5</div>
+                    <div class="value" onclick="setValue(0, 6);">6</div>
+                    <div class="value" onclick="setValue(0, 7);">7</div>
+                    <div class="value" onclick="setValue(0, 8);">8</div>
+                    <div class="value" onclick="setValue(0, 9);">9</div>
+                    <div class="value" onclick="setValue(0, 10);">10</div>
+                </div>
+            </div>
+            <div class="area" style="display: none;">
+                <h3>Career/Education</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(1, 1);">1</div>
+                    <div class="value" onclick="setValue(1, 2);">2</div>
+                    <div class="value" onclick="setValue(1, 3);">3</div>
+                    <div class="value" onclick="setValue(1, 4);">4</div>
+                    <div class="value" onclick="setValue(1, 5);">5</div>
+                    <div class="value" onclick="setValue(1, 6);">6</div>
+                    <div class="value" onclick="setValue(1, 7);">7</div>
+                    <div class="value" onclick="setValue(1, 8);">8</div>
+                    <div class="value" onclick="setValue(1, 9);">9</div>
+                    <div class="value" onclick="setValue(1, 10);">10</div>
+                </div>
+            </div>
+            <div class="area" style="display: none;">
+                <h3>Creativity</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(2, 1);">1</div>
+                    <div class="value" onclick="setValue(2, 2);">2</div>
+                    <div class="value" onclick="setValue(2, 3);">3</div>
+                    <div class="value" onclick="setValue(2, 4);">4</div>
+                    <div class="value" onclick="setValue(2, 5);">5</div>
+                    <div class="value" onclick="setValue(2, 6);">6</div>
+                    <div class="value" onclick="setValue(2, 7);">7</div>
+                    <div class="value" onclick="setValue(2, 8);">8</div>
+                    <div class="value" onclick="setValue(2, 9);">9</div>
+                    <div class="value" onclick="setValue(2, 10);">10</div>
+                </div>
+            </div>
+            <div class="area" style="display: none;">
+                <h3>Spirituality</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(3, 1);">1</div>
+                    <div class="value" onclick="setValue(3, 2);">2</div>
+                    <div class="value" onclick="setValue(3, 3);">3</div>
+                    <div class="value" onclick="setValue(3, 4);">4</div>
+                    <div class="value" onclick="setValue(3, 5);">5</div>
+                    <div class="value" onclick="setValue(3, 6);">6</div>
+                    <div class="value" onclick="setValue(3, 7);">7</div>
+                    <div class="value" onclick="setValue(3, 8);">8</div>
+                    <div class="value" onclick="setValue(3, 9);">9</div>
+                    <div class="value" onclick="setValue(3, 10);">10</div>
+                </div>
+            </div>
+            <div class="area" style="display: none;">
+                <h3>Family</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(4, 1);">1</div>
+                    <div class="value" onclick="setValue(4, 2);">2</div>
+                    <div class="value" onclick="setValue(4, 3);">3</div>
+                    <div class="value" onclick="setValue(4, 4);">4</div>
+                    <div class="value" onclick="setValue(4, 5);">5</div>
+                    <div class="value" onclick="setValue(4, 6);">6</div>
+                    <div class="value" onclick="setValue(4, 7);">7</div>
+                    <div class="value" onclick="setValue(4, 8);">8</div>
+                    <div class="value" onclick="setValue(4, 9);">9</div>
+                    <div class="value" onclick="setValue(4, 10);">10</div>
+                </div>
+            </div>
+            <div class="area" style="display: none;">
+                <h3>Finances</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(5, 1);">1</div>
+                    <div class="value" onclick="setValue(5, 2);">2</div>
+                    <div class="value" onclick="setValue(5, 3);">3</div>
+                    <div class="value" onclick="setValue(5, 4);">4</div>
+                    <div class="value" onclick="setValue(5, 5);">5</div>
+                    <div class="value" onclick="setValue(5, 6);">6</div>
+                    <div class="value" onclick="setValue(5, 7);">7</div>
+                    <div class="value" onclick="setValue(5, 8);">8</div>
+                    <div class="value" onclick="setValue(5, 9);">9</div>
+                    <div class="value" onclick="setValue(5, 10);">10</div>
+                </div>
+            </div>
+            <div class="area" style="display: none;">
+                <h3>Fun</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(6, 1);">1</div>
+                    <div class="value" onclick="setValue(6, 2);">2</div>
+                    <div class="value" onclick="setValue(6, 3);">3</div>
+                    <div class="value" onclick="setValue(6, 4);">4</div>
+                    <div class="value" onclick="setValue(6, 5);">5</div>
+                    <div class="value" onclick="setValue(6, 6);">6</div>
+                    <div class="value" onclick="setValue(6, 7);">7</div>
+                    <div class="value" onclick="setValue(6, 8);">8</div>
+                    <div class="value" onclick="setValue(6, 9);">9</div>
+                    <div class="value" onclick="setValue(6, 10);">10</div>
+                </div>
+            </div>
+            <div class="area" style="display: none;">
+                <h3>Social Relationships</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(7, 1);">1</div>
+                    <div class="value" onclick="setValue(7, 2);">2</div>
+                    <div class="value" onclick="setValue(7, 3);">3</div>
+                    <div class="value" onclick="setValue(7, 4);">4</div>
+                    <div class="value" onclick="setValue(7, 5);">5</div>
+                    <div class="value" onclick="setValue(7, 6);">6</div>
+                    <div class="value" onclick="setValue(7, 7);">7</div>
+                    <div class="value" onclick="setValue(7, 8);">8</div>
+                    <div class="value" onclick="setValue(7, 9);">9</div>
+                    <div class="value" onclick="setValue(7, 10);">10</div>
+                </div>
+            </div>
+             <div class="area" style="display: none;">
+                <h3>Intimate Relationships</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(8, 1);">1</div>
+                    <div class="value" onclick="setValue(8, 2);">2</div>
+                    <div class="value" onclick="setValue(8, 3);">3</div>
+                    <div class="value" onclick="setValue(8, 4);">4</div>
+                    <div class="value" onclick="setValue(8, 5);">5</div>
+                    <div class="value" onclick="setValue(8, 6);">6</div>
+                    <div class="value" onclick="setValue(8, 7);">7</div>
+                    <div class="value" onclick="setValue(8, 8);">8</div>
+                    <div class="value" onclick="setValue(8, 9);">9</div>
+                    <div class="value" onclick="setValue(8, 10);">10</div>
+                </div>
+            </div>
+             <div class="area" style="display: none;">
+                <h3>Personal Growth</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(9, 1);">1</div>
+                    <div class="value" onclick="setValue(9, 2);">2</div>
+                    <div class="value" onclick="setValue(9, 3);">3</div>
+                    <div class="value" onclick="setValue(9, 4);">4</div>
+                    <div class="value" onclick="setValue(9, 5);">5</div>
+                    <div class="value" onclick="setValue(9, 6);">6</div>
+                    <div class="value" onclick="setValue(9, 7);">7</div>
+                    <div class="value" onclick="setValue(9, 9);">8</div>
+                    <div class="value" onclick="setValue(9, 9);">9</div>
+                    <div class="value" onclick="setValue(9, 10);">10</div>
+                </div>
+            </div>
+             <div class="area" style="display: none;">
+                <h3>Contribution</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(10, 1);">1</div>
+                    <div class="value" onclick="setValue(10, 2);">2</div>
+                    <div class="value" onclick="setValue(10, 3);">3</div>
+                    <div class="value" onclick="setValue(10, 4);">4</div>
+                    <div class="value" onclick="setValue(10, 5);">5</div>
+                    <div class="value" onclick="setValue(10, 6);">6</div>
+                    <div class="value" onclick="setValue(10, 7);">7</div>
+                    <div class="value" onclick="setValue(10, 8);">8</div>
+                    <div class="value" onclick="setValue(10, 9);">9</div>
+                    <div class="value" onclick="setValue(10, 10);">10</div>
+                </div>
+            </div>
+             <div class="area" style="display: none;">
+                <h3>Physical Environment</h3>
+                <div class="values">
+                    <div class="value show-chart" onclick="setValue(11, 1);">1</div>
+                    <div class="value show-chart" onclick="setValue(11, 2);">2</div>
+                    <div class="value show-chart" onclick="setValue(11, 3);">3</div>
+                    <div class="value show-chart" onclick="setValue(11, 4);">4</div>
+                    <div class="value show-chart" onclick="setValue(11, 5);">5</div>
+                    <div class="value show-chart" onclick="setValue(11, 6);">6</div>
+                    <div class="value show-chart" onclick="setValue(11, 7);">7</div>
+                    <div class="value show-chart" onclick="setValue(11, 8);">8</div>
+                    <div class="value show-chart" onclick="setValue(11, 9);">9</div>
+                    <div class="value show-chart" onclick="setValue(11, 10);">10</div>
+                </div>
+            </div>
+
+            <div class="area" style="display: none;">
+                <h3 id="all-done">All done!</h3>
+            </div>
+        </div>
+        <div id="chartdiv"></div>
+
+
+    </div>
+    <div id="result-block">
+        <p id="title-wheel">Your Wheel of Life</p>
+        <button class="btn first">Share with a friend</button>
+        <p id="thank">Thank you for completing the wheel of life test! To discuss your results with Joe, schedule a free personal coaching session below.</p>
+
+    </div>
+    <script type="text/javascript">
+        /**
+         * ---------------------------------------
+         * This demo was created using amCharts 4.
+         * 
+         * For more information visit:
+         * https://www.amcharts.com/
+         * 
+         * Documentation is available at:
+         * https://www.amcharts.com/docs/v4/
+         * ---------------------------------------
+         */
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        var chart = am4core.create("chartdiv", am4charts.RadarChart);
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+        chart.data = [{
+            "category": "Health",
+            "value": 0,
+            "color": chart.colors.next()
+        }, {
+            "category": "Career",
+            "value": 0,
+            "color": chart.colors.next()
+        }, {
+            "category": "Creativity",
+            "value": 0,
+            "color": chart.colors.next()
+        }, {
+            "category": "Spirituality",
+            "value": 0,
+            "color": chart.colors.next()
+        }, {
+            "category": "Family",
+            "value": 0,
+            "color": chart.colors.next()
+        }, {
+            "category": "Finances",
+            "value": 0,
+            "color": chart.colors.next()
+        }, {
+            "category": "Intimate\nRelationships",
+            "value": 0,
+            "color": chart.colors.next()
+        }, {
+            "category": "Social\nRelationships",
+            "value": 0,
+            "color": chart.colors.next()
+        }, {
+            "category": "Fun",
+            "value": 0,
+            "color": chart.colors.next()
+        }, {
+            "category": "Personal\nGrowth",
+            "value": 0,
+            "color": chart.colors.next()
+        },{
+            "category": "Contribution",
+            "value": 0,
+            "color": chart.colors.next()
+        },{
+            "category": "Physical\nEnvironment",
+            "value": 0,
+            "color": chart.colors.next()
+        }];
+
+        chart.padding(20, 20, 20, 20);
+
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "category";
+        categoryAxis.renderer.labels.template.location = 0.5;
+        categoryAxis.renderer.tooltipLocation = 0.5;
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.renderer.labels.template.disabled = true;
+        valueAxis.min = 0;
+        valueAxis.max = 10;
+        valueAxis.renderer.minGridDistance = 10;
+
+        var series = chart.series.push(new am4charts.RadarColumnSeries());
+        series.columns.template.tooltipText = "{categoryX}: {valueY.value}";
+        series.columns.template.width = am4core.percent(100);
+        series.columns.template.strokeWidth = 0;
+        series.columns.template.column.propertyFields.fill = "color";
+        series.dataFields.categoryX = "category";
+        series.dataFields.valueY = "value";
+
+        /**
+         * Sets value for particular index
+         */
+        function setValue(index, value) {
+
+            // Set value
+            chart.data[index].value = value;
+            chart.invalidateRawData();
+
+            // Reveal next question
+            var areas = document.getElementsByClassName("area");
+            for (var i = 0; i < areas.length; i++) {
+                areas[i].style.display = (index + 1) === i ? "block" : "none";
+            }
+
+        }
+
+        //displaying the wheel of life
+        let resultBlock = document.querySelector("#result-block");
+        let myWheel = document.querySelector("#chartdiv");
+        let myFriendValues = document.querySelectorAll('.show-chart');
+        let rateHeading = document.querySelector('#rate-heading');
+        
+        
+
+
+        function addMyEvents(par) {
+            for (let i = 0; i < par.length; i++) {
+                par[i].addEventListener('click', function() {
+                    myWheel.style.transform = 'scale(1,1)';
+                    resultBlock.style.display='block';
+                    rateHeading.style.display="none"
+                })
+
+            }
+        }
+        addMyEvents(myFriendValues)
+
+    </script>
+
+</body>
+
+</html>
