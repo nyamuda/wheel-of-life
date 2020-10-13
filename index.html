@@ -5,19 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.typekit.net/ces4jae.css">
     <title> Title </title>
     <style type="text/css">
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            font-family: acumin-pro, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        #chart-container {}
+        #all-done {
+            text-align: center;
+            position: relative;
+            margin: auto;
         }
 
         #chartdiv {
             width: 100%;
-            height: 37.5rem;
+            height: 400px;
             transform: scale(0);
             transition: all 0.2s ease-in-out;
             position: relative;
-            top: -2rem;
+            top: 2rem;
+            margin: auto;
         }
 
         .areas {
@@ -26,16 +37,27 @@
             min-height: 95px;
         }
 
+        .areas p {
+            position: relative;
+            margin: auto;
+            text-align: center;
+        }
+
         .areas .value {
             display: inline-block;
             font-size: 1.3em;
             padding: 5px 10px;
             border: 1px solid #ddd;
             cursor: pointer;
+            -webkit-transition: box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+            transition: box-shadow 600ms ease-in-out, color 600ms ease-in-out;
         }
 
         .areas .value:hover {
             background: #ecc;
+            box-shadow: 0 0 40px 40px #e74c3c inset;
+            color: #fff;
+            outline: 0;
         }
 
 
@@ -86,8 +108,8 @@
             width: 100%;
             text-align: center;
             position: relative;
-            top: -4rem;
             display: none;
+            top: 1rem;
         }
 
         #thank {
@@ -105,19 +127,47 @@
         #rate-heading {
             width: 100%;
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             position: relative
         }
-        #wheel-container {
-           
+
+        .questions {
+            font-size: 1.2rem;
+            min-height: 5rem;
+            width: 90%;
         }
-        
-        @media (max-width:720px) {
-            #chartdiv {
-                
+
+        @-webkit-keyframes fade-in-out {
+            0% {
+                letter-spacing: -0.5em;
+                filter: blur(12px) opacity(0%);
+            }
+
+            30% {
+                letter-spacing: 0;
+                filter: blur(0) opacity(1);
+            }
+
+            70% {
+                letter-spacing: 0;
+                filter: blur(0) opacity(1);
             }
         }
 
+        .questions {
+
+            animation-name: fade-in-out;
+            animation-duration: 0.5s;
+            animation-iteration-count: 1;
+        }
+
+        #wheel-container {}
+
+        @media (min-width:720px) {
+            .questions {
+                width: 40%;
+            }
+        }
     </style>
 
 </head>
@@ -128,7 +178,7 @@
     <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
     <div id="start-btn">
-     <!--   <button class="btn first">Start</button> -->
+        <!--   <button class="btn first">Start</button> -->
     </div>
     <div id="rate-heading">
         <p>Rate your current level of satisfaction for this area of your life.</p>
@@ -136,7 +186,6 @@
     <div id="wheel-container">
         <div class="areas">
             <div class="area">
-                <h3>Health</h3>
                 <div class="values">
                     <div class="value" onclick="setValue(0, 1);">1</div>
                     <div class="value" onclick="setValue(0, 2);">2</div>
@@ -149,9 +198,12 @@
                     <div class="value" onclick="setValue(0, 9);">9</div>
                     <div class="value" onclick="setValue(0, 10);">10</div>
                 </div>
+                <h3>Health</h3>
+                <p class="questions">Are you satisfied with your current health status? Are you comfortable with your exercise levels or diet?
+                    Is there any medical condition you have that might be keeping you from living intentionally?</p>
             </div>
             <div class="area" style="display: none;">
-                <h3>Career/Education</h3>
+
                 <div class="values">
                     <div class="value" onclick="setValue(1, 1);">1</div>
                     <div class="value" onclick="setValue(1, 2);">2</div>
@@ -164,9 +216,13 @@
                     <div class="value" onclick="setValue(1, 9);">9</div>
                     <div class="value" onclick="setValue(1, 10);">10</div>
                 </div>
+                <h3>Spirituality</h3>
+                <p class="questions">Are you satisfied in your spiritual practices? For some this is religious, for others it may be more likened
+                    to meditation. This rating is about how you perceive your individual spirituality.</p>
+
             </div>
             <div class="area" style="display: none;">
-                <h3>Creativity</h3>
+
                 <div class="values">
                     <div class="value" onclick="setValue(2, 1);">1</div>
                     <div class="value" onclick="setValue(2, 2);">2</div>
@@ -179,9 +235,13 @@
                     <div class="value" onclick="setValue(2, 9);">9</div>
                     <div class="value" onclick="setValue(2, 10);">10</div>
                 </div>
+                <h3>Creativity</h3>
+                <p class="questions">Are you satisfied with your creativity level? This doesn’t have to be artistic creativity. Perhaps you’re
+                    most creative in your problem solving or are more mechanically inclined and are able to express yourself
+                    creatively that way.</p>
             </div>
             <div class="area" style="display: none;">
-                <h3>Spirituality</h3>
+
                 <div class="values">
                     <div class="value" onclick="setValue(3, 1);">1</div>
                     <div class="value" onclick="setValue(3, 2);">2</div>
@@ -194,9 +254,12 @@
                     <div class="value" onclick="setValue(3, 9);">9</div>
                     <div class="value" onclick="setValue(3, 10);">10</div>
                 </div>
+                <h3>Career/Education</h3>
+                <p class="questions">Do you enjoy your job (or education path)? Is it fulfilling work and your ideal career path, or does
+                    something feel missing?</p>
             </div>
             <div class="area" style="display: none;">
-                <h3>Family</h3>
+
                 <div class="values">
                     <div class="value" onclick="setValue(4, 1);">1</div>
                     <div class="value" onclick="setValue(4, 2);">2</div>
@@ -209,9 +272,11 @@
                     <div class="value" onclick="setValue(4, 9);">9</div>
                     <div class="value" onclick="setValue(4, 10);">10</div>
                 </div>
+                <h3>Family</h3>
+                <p class="questions">What’s your family dynamic like? You can rate either or both of your immediate and extended family.</p>
             </div>
             <div class="area" style="display: none;">
-                <h3>Finances</h3>
+
                 <div class="values">
                     <div class="value" onclick="setValue(5, 1);">1</div>
                     <div class="value" onclick="setValue(5, 2);">2</div>
@@ -224,9 +289,11 @@
                     <div class="value" onclick="setValue(5, 9);">9</div>
                     <div class="value" onclick="setValue(5, 10);">10</div>
                 </div>
+                <h3>Finances</h3>
+                <p class="questions">How comfortable are you with your financial situation?</p>
             </div>
             <div class="area" style="display: none;">
-                <h3>Fun</h3>
+
                 <div class="values">
                     <div class="value" onclick="setValue(6, 1);">1</div>
                     <div class="value" onclick="setValue(6, 2);">2</div>
@@ -239,9 +306,13 @@
                     <div class="value" onclick="setValue(6, 9);">9</div>
                     <div class="value" onclick="setValue(6, 10);">10</div>
                 </div>
+                <h3>Intimate Relationships</h3>
+
+                <p class="questions">How satisfied are you with your intimate relationships? With your family, spouse/partner, and close
+                    friends – are they mostly positive? Mostly negative? In need of repair?</p>
             </div>
             <div class="area" style="display: none;">
-                <h3>Social Relationships</h3>
+
                 <div class="values">
                     <div class="value" onclick="setValue(7, 1);">1</div>
                     <div class="value" onclick="setValue(7, 2);">2</div>
@@ -254,9 +325,10 @@
                     <div class="value" onclick="setValue(7, 9);">9</div>
                     <div class="value" onclick="setValue(7, 10);">10</div>
                 </div>
+                <h3>Social Relationships</h3>
+                <p class="questions">How would you rate your social relationships? Do you have enough? Are they quality relationships?</p>
             </div>
-             <div class="area" style="display: none;">
-                <h3>Intimate Relationships</h3>
+            <div class="area" style="display: none;">
                 <div class="values">
                     <div class="value" onclick="setValue(8, 1);">1</div>
                     <div class="value" onclick="setValue(8, 2);">2</div>
@@ -269,9 +341,13 @@
                     <div class="value" onclick="setValue(8, 9);">9</div>
                     <div class="value" onclick="setValue(8, 10);">10</div>
                 </div>
+                <h3>Fun</h3>
+                <p class="questions">Are you satisfied with the amount of “fun” you have in life? If you’re an extrovert, this might mean
+                    spending time with friends or going to your favorite events, and if you’re introverted, this might look
+                    more like a Netflix bender or a small game night with close friends. Is it often enough?</p>
             </div>
-             <div class="area" style="display: none;">
-                <h3>Personal Growth</h3>
+            <div class="area" style="display: none;">
+
                 <div class="values">
                     <div class="value" onclick="setValue(9, 1);">1</div>
                     <div class="value" onclick="setValue(9, 2);">2</div>
@@ -284,9 +360,12 @@
                     <div class="value" onclick="setValue(9, 9);">9</div>
                     <div class="value" onclick="setValue(9, 10);">10</div>
                 </div>
+                <h3>Personal Growth</h3>
+                <p class="questions">Are you content in your path for personal growth? Do you feel like you’re in need of growth in a certain
+                    area of your personal life, or are you satisfied with your current efforts?</p>
             </div>
-             <div class="area" style="display: none;">
-                <h3>Contribution</h3>
+            <div class="area" style="display: none;">
+
                 <div class="values">
                     <div class="value" onclick="setValue(10, 1);">1</div>
                     <div class="value" onclick="setValue(10, 2);">2</div>
@@ -299,9 +378,12 @@
                     <div class="value" onclick="setValue(10, 9);">9</div>
                     <div class="value" onclick="setValue(10, 10);">10</div>
                 </div>
+                <h3>Contribution</h3>
+                <p class="questions">How would you rate your contribution to society? Your family? Your work? Anywhere you might be a
+                    contributing party – think about your satisfaction level.</p>
             </div>
-             <div class="area" style="display: none;">
-                <h3>Physical Environment</h3>
+            <div class="area" style="display: none;">
+
                 <div class="values">
                     <div class="value show-chart" onclick="setValue(11, 1);">1</div>
                     <div class="value show-chart" onclick="setValue(11, 2);">2</div>
@@ -314,14 +396,21 @@
                     <div class="value show-chart" onclick="setValue(11, 9);">9</div>
                     <div class="value show-chart" onclick="setValue(11, 10);">10</div>
                 </div>
+                <h3>Physical Environment</h3>
+                <p class="questions">How satisfied are you with your physical surroundings overall? How about specific places that you spend a lot of time, like your office, or where you relax? Your home?</p>
             </div>
 
-            <div class="area" style="display: none;">
-                <h3 id="all-done">All done!</h3>
-            </div>
         </div>
-        <div id="chartdiv"></div>
 
+
+
+
+    </div>
+    <div class="area" style="display: none">
+        <h3 id="all-done">All done!</h3>
+    </div>
+    <div id="chart-container">
+        <div id="chartdiv"></div>
 
     </div>
     <div id="result-block">
@@ -330,6 +419,10 @@
         <p id="thank">Thank you for completing the wheel of life test! To discuss your results with Joe, schedule a free personal coaching session below.</p>
 
     </div>
+
+    <!--LOADING THE FORM FROM JOTFORM-->
+    <script src="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
+
     <script type="text/javascript">
         /**
          * ---------------------------------------
@@ -347,57 +440,60 @@
         am4core.useTheme(am4themes_animated);
         // Themes end
 
+
+
         var chart = am4core.create("chartdiv", am4charts.RadarChart);
         chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
 
         chart.data = [{
             "category": "Health",
             "value": 0,
-            "color": chart.colors.next()
-        }, {
-            "category": "Career",
-            "value": 0,
-            "color": chart.colors.next()
-        }, {
-            "category": "Creativity",
-            "value": 0,
-            "color": chart.colors.next()
+            "color": "#4BA69F"
         }, {
             "category": "Spirituality",
             "value": 0,
-            "color": chart.colors.next()
+            "color": "#5EA8DD"
+        }, {
+            "category": "Creativity",
+            "value": 0,
+            "color": "#2265B0"
+        }, {
+            "category": "Career",
+            "value": 0,
+            "color": "#583F89"
         }, {
             "category": "Family",
             "value": 0,
-            "color": chart.colors.next()
+            "color": "#7C428A"
         }, {
             "category": "Finances",
             "value": 0,
-            "color": chart.colors.next()
+            "color": "#B52966"
         }, {
             "category": "Intimate\nRelationships",
             "value": 0,
-            "color": chart.colors.next()
+            "color": "#DD3071"
         }, {
             "category": "Social\nRelationships",
             "value": 0,
-            "color": chart.colors.next()
+            "color": "#D82E27"
         }, {
             "category": "Fun",
             "value": 0,
-            "color": chart.colors.next()
+            "color": "#F07434"
         }, {
             "category": "Personal\nGrowth",
             "value": 0,
-            "color": chart.colors.next()
-        },{
+            "color": "#FBEE45"
+        }, {
             "category": "Contribution",
             "value": 0,
-            "color": chart.colors.next()
-        },{
+            "color": "#BBD237"
+        }, {
             "category": "Physical\nEnvironment",
             "value": 0,
-            "color": chart.colors.next()
+            "color": "#60A845"
         }];
 
         chart.padding(20, 20, 20, 20);
@@ -438,29 +534,85 @@
 
         }
 
-        //displaying the wheel of life
+
+
+
+
+
+
+        chart.responsive.useDefault = false
+        chart.responsive.enabled = true;
+
+        chart.responsive.rules.push({
+            relevant: function(target) {
+                if (target.pixelWidth <= 400) {
+                    return true;
+                }
+
+                return false;
+            },
+            state: function(target, stateId) {
+                if (target instanceof am4charts.Chart) {
+                    var state = target.states.create(stateId);
+                    state.properties.paddingTop = 5;
+                    state.properties.paddingRight = 55;
+                    state.properties.paddingBottom = 5;
+                    state.properties.paddingLeft = 55;
+                    return state;
+                }
+                return null;
+            }
+
+        });
+
+
+
+        //DISPLAYING THE WHEEL OF LIFE AND THE FORM
         let resultBlock = document.querySelector("#result-block");
         let myWheel = document.querySelector("#chartdiv");
-        let myFriendValues = document.querySelectorAll('.show-chart');
         let rateHeading = document.querySelector('#rate-heading');
-        
-        
+        let wheelContainer = document.querySelector("#wheel-container");
+        let lastAnswers = document.querySelectorAll('.show-chart')
+
+        /*Add an event lister to all the possible answers(1-10) of the 
+      last question.*/
+
+        for (let i = 0; i < lastAnswers.length; i++) {
+            lastAnswers[i].addEventListener('click', function() {
+                myWheel.style.transform = 'scale(1,1)';
+                resultBlock.style.display = 'block';
+                rateHeading.style.display = "none";
+                wheelContainer.style.display = "none";
 
 
-        function addMyEvents(par) {
-            for (let i = 0; i < par.length; i++) {
-                par[i].addEventListener('click', function() {
-                    myWheel.style.transform = 'scale(1,1)';
-                    resultBlock.style.display='block';
-                    rateHeading.style.display="none"
-                })
 
-            }
+
+                /*The following code loads the form when the page loads. 
+                The code was taken directly from Jotform*/
+                var JFL_202858180071554 = new JotformFeedback({
+                    formId: '202858180071554',
+                    base: 'https://form.jotform.com/',
+                    windowTitle: 'General Inquiry Contact Form',
+                    background: '#FFA500',
+                    fontColor: '#FFFFFF',
+                    type: 'false',
+                    height: 500,
+                    width: 700,
+                    openOnLoad: true
+                });
+
+
+
+
+
+
+
+            })
         }
-        addMyEvents(myFriendValues)
+    </script>
+
+    <script type="text/javascript">
 
     </script>
 
-</body>
-
-</html>
+</body></html>
