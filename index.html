@@ -15,6 +15,7 @@
         }
 
         #chart-container {}
+
         #all-done {
             text-align: center;
             position: relative;
@@ -135,30 +136,44 @@
             font-size: 1.2rem;
             min-height: 5rem;
             width: 90%;
+            position: relative;
+            margin: auto;
+            text-align: center;
+            top: 1rem;
         }
 
-        @-webkit-keyframes fade-in-out {
-            0% {
-                letter-spacing: -0.5em;
-                filter: blur(12px) opacity(0%);
+        @-webkit-keyframes fadeInUp {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 100%, 0);
+                transform: translate3d(0, 100%, 0);
             }
 
-            30% {
-                letter-spacing: 0;
-                filter: blur(0) opacity(1);
+            to {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 100%, 0);
+                transform: translate3d(0, 100%, 0);
             }
 
-            70% {
-                letter-spacing: 0;
-                filter: blur(0) opacity(1);
+            to {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
             }
         }
 
         .questions {
-
-            animation-name: fade-in-out;
-            animation-duration: 0.2s;
-            animation-iteration-count: 1;
+            opacity: 0;
+            -webkit-animation: fadeInUp 0.2s ease-in-out 0s forwards;
+            animation: fadeInUp 0.2s ease-in-out 0s forwards;
         }
 
         #wheel-container {}
@@ -186,6 +201,7 @@
     <div id="wheel-container">
         <div class="areas">
             <div class="area">
+                <h3>Health</h3>
                 <div class="values">
                     <div class="value" onclick="setValue(0, 1);">1</div>
                     <div class="value" onclick="setValue(0, 2);">2</div>
@@ -198,11 +214,11 @@
                     <div class="value" onclick="setValue(0, 9);">9</div>
                     <div class="value" onclick="setValue(0, 10);">10</div>
                 </div>
-                <h3>Health</h3>
                 <p class="questions">Are you satisfied with your current health status? Are you comfortable with your exercise levels or diet?
                     Is there any medical condition you have that might be keeping you from living intentionally?</p>
             </div>
             <div class="area" style="display: none;">
+                <h3>Spirituality</h3>
 
                 <div class="values">
                     <div class="value" onclick="setValue(1, 1);">1</div>
@@ -216,12 +232,13 @@
                     <div class="value" onclick="setValue(1, 9);">9</div>
                     <div class="value" onclick="setValue(1, 10);">10</div>
                 </div>
-                <h3>Spirituality</h3>
+
                 <p class="questions">Are you satisfied in your spiritual practices? For some this is religious, for others it may be more likened
                     to meditation. This rating is about how you perceive your individual spirituality.</p>
 
             </div>
             <div class="area" style="display: none;">
+                <h3>Creativity</h3>
 
                 <div class="values">
                     <div class="value" onclick="setValue(2, 1);">1</div>
@@ -235,12 +252,13 @@
                     <div class="value" onclick="setValue(2, 9);">9</div>
                     <div class="value" onclick="setValue(2, 10);">10</div>
                 </div>
-                <h3>Creativity</h3>
+
                 <p class="questions">Are you satisfied with your creativity level? This doesn’t have to be artistic creativity. Perhaps you’re
                     most creative in your problem solving or are more mechanically inclined and are able to express yourself
                     creatively that way.</p>
             </div>
             <div class="area" style="display: none;">
+                <h3>Career/Education</h3>
 
                 <div class="values">
                     <div class="value" onclick="setValue(3, 1);">1</div>
@@ -254,11 +272,12 @@
                     <div class="value" onclick="setValue(3, 9);">9</div>
                     <div class="value" onclick="setValue(3, 10);">10</div>
                 </div>
-                <h3>Career/Education</h3>
+
                 <p class="questions">Do you enjoy your job (or education path)? Is it fulfilling work and your ideal career path, or does
                     something feel missing?</p>
             </div>
             <div class="area" style="display: none;">
+                <h3>Family</h3>
 
                 <div class="values">
                     <div class="value" onclick="setValue(4, 1);">1</div>
@@ -272,10 +291,11 @@
                     <div class="value" onclick="setValue(4, 9);">9</div>
                     <div class="value" onclick="setValue(4, 10);">10</div>
                 </div>
-                <h3>Family</h3>
+
                 <p class="questions">What’s your family dynamic like? You can rate either or both of your immediate and extended family.</p>
             </div>
             <div class="area" style="display: none;">
+                <h3>Finances</h3>
 
                 <div class="values">
                     <div class="value" onclick="setValue(5, 1);">1</div>
@@ -289,10 +309,11 @@
                     <div class="value" onclick="setValue(5, 9);">9</div>
                     <div class="value" onclick="setValue(5, 10);">10</div>
                 </div>
-                <h3>Finances</h3>
+
                 <p class="questions">How comfortable are you with your financial situation?</p>
             </div>
             <div class="area" style="display: none;">
+                <h3>Intimate Relationships</h3>
 
                 <div class="values">
                     <div class="value" onclick="setValue(6, 1);">1</div>
@@ -306,12 +327,12 @@
                     <div class="value" onclick="setValue(6, 9);">9</div>
                     <div class="value" onclick="setValue(6, 10);">10</div>
                 </div>
-                <h3>Intimate Relationships</h3>
 
-                <p class="questions">How satisfied are you with your intimate relationships? With your family, spouse/partner, and close
-                    friends – are they mostly positive? Mostly negative? In need of repair?</p>
+
+                <p class="questions">How satisfied are you with your intimate relationships? With your family, spouse/partner, and close friends – are they mostly positive? Mostly negative? In need of repair?</p>
             </div>
             <div class="area" style="display: none;">
+                <h3>Social Relationships</h3>
 
                 <div class="values">
                     <div class="value" onclick="setValue(7, 1);">1</div>
@@ -325,10 +346,11 @@
                     <div class="value" onclick="setValue(7, 9);">9</div>
                     <div class="value" onclick="setValue(7, 10);">10</div>
                 </div>
-                <h3>Social Relationships</h3>
+
                 <p class="questions">How would you rate your social relationships? Do you have enough? Are they quality relationships?</p>
             </div>
             <div class="area" style="display: none;">
+                <h3>Fun</h3>
                 <div class="values">
                     <div class="value" onclick="setValue(8, 1);">1</div>
                     <div class="value" onclick="setValue(8, 2);">2</div>
@@ -341,12 +363,12 @@
                     <div class="value" onclick="setValue(8, 9);">9</div>
                     <div class="value" onclick="setValue(8, 10);">10</div>
                 </div>
-                <h3>Fun</h3>
-                <p class="questions">Are you satisfied with the amount of “fun” you have in life? If you’re an extrovert, this might mean
-                    spending time with friends or going to your favorite events, and if you’re introverted, this might look
+
+                <p class="questions">Are you satisfied with the amount of “fun” you have in life? If you’re an extrovert, this might mean spending time with friends or going to your favorite events, and if you’re introverted, this might look
                     more like a Netflix bender or a small game night with close friends. Is it often enough?</p>
             </div>
             <div class="area" style="display: none;">
+                <h3>Personal Growth</h3>
 
                 <div class="values">
                     <div class="value" onclick="setValue(9, 1);">1</div>
@@ -360,11 +382,11 @@
                     <div class="value" onclick="setValue(9, 9);">9</div>
                     <div class="value" onclick="setValue(9, 10);">10</div>
                 </div>
-                <h3>Personal Growth</h3>
-                <p class="questions">Are you content in your path for personal growth? Do you feel like you’re in need of growth in a certain
-                    area of your personal life, or are you satisfied with your current efforts?</p>
+
+                <p class="questions">Are you content in your path for personal growth? Do you feel like you’re in need of growth in a certain area of your personal life, or are you satisfied with your current efforts?</p>
             </div>
             <div class="area" style="display: none;">
+                <h3>Contribution</h3>
 
                 <div class="values">
                     <div class="value" onclick="setValue(10, 1);">1</div>
@@ -378,11 +400,12 @@
                     <div class="value" onclick="setValue(10, 9);">9</div>
                     <div class="value" onclick="setValue(10, 10);">10</div>
                 </div>
-                <h3>Contribution</h3>
+
                 <p class="questions">How would you rate your contribution to society? Your family? Your work? Anywhere you might be a
                     contributing party – think about your satisfaction level.</p>
             </div>
             <div class="area" style="display: none;">
+                <h3>Physical Environment</h3>
 
                 <div class="values">
                     <div class="value show-chart" onclick="setValue(11, 1);">1</div>
@@ -396,7 +419,7 @@
                     <div class="value show-chart" onclick="setValue(11, 9);">9</div>
                     <div class="value show-chart" onclick="setValue(11, 10);">10</div>
                 </div>
-                <h3>Physical Environment</h3>
+
                 <p class="questions">How satisfied are you with your physical surroundings overall? How about specific places that you spend a lot of time, like your office, or where you relax? Your home?</p>
             </div>
 
@@ -588,7 +611,12 @@
 
 
                 /*The following code loads the form when the page loads. 
-                The code was taken directly from Jotform*/
+                The code was taken directly from Jotform. To keep the Form from loading when the page
+                loads, the code was added to this event handler anonymous function
+                so that this code can only run when the user answers
+                the last question. If you want to change the current form with
+                a new one, go to the embed tab, lightbox, then copy the code. Change the 
+                value of openOnLoad property to true, then add the code below.*/
                 var JFL_202858180071554 = new JotformFeedback({
                     formId: '202858180071554',
                     base: 'https://form.jotform.com/',
