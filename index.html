@@ -95,6 +95,9 @@
             color: #fff;
             outline: 0;
         }
+        .btn:active {
+            color:#e74c3c;
+        }
 
         .first {
             -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
@@ -441,7 +444,7 @@
     </div>
     <div id="result-block">
         <p id="title-wheel">Your Wheel of Life</p>
-        <button onclick="window.print()" class="btn first">Save</button>
+        <button class="btn first" id="save-pdf">Save</button>
         <p id="thank">Thank you for completing the wheel of life test! To discuss your results with Joe, schedule a free personal coaching session below.</p>
 
     </div>
@@ -596,7 +599,13 @@
         let myWheel = document.querySelector("#chartdiv");
         let rateHeading = document.querySelector('#rate-heading');
         let wheelContainer = document.querySelector("#wheel-container");
-        let lastAnswers = document.querySelectorAll('.show-chart')
+        let lastAnswers = document.querySelectorAll('.show-chart');
+        let saveBtn= document.querySelector("#save-pdf");
+        saveBtn.onclick=function() {
+            window.print();
+           saveBtn.style.color='#e74c3c'
+            
+        }
 
         /*Add an event lister to all the possible answers(1-10) of the 
       last question.*/
