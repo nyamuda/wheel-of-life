@@ -38,7 +38,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
 
       /*Changing the font size of the wheel color labels for mobile view*/
       #chart-container {
-        font-size: 0.4rem;
+        font-size: 0.5rem;
       }
 
       #all-done {
@@ -804,9 +804,9 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
           if (target instanceof am4charts.Chart) {
             var state = target.states.create(stateId);
             state.properties.paddingTop = 5;
-            state.properties.paddingRight = 15;
+            state.properties.paddingRight = 20;
             state.properties.paddingBottom = 5;
-            state.properties.paddingLeft = 15;
+            state.properties.paddingLeft = 20;
             return state;
           }
           return null;
