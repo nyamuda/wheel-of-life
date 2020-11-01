@@ -36,6 +36,11 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
         font-style: normal;
       }
 
+      /*Changing the font size of the wheel color labels for mobile view*/
+      #chart-container {
+        font-size: 0.5rem;
+      }
+
       #all-done {
         text-align: center;
         position: relative;
@@ -223,10 +228,21 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
         -webkit-animation: fadeInUp 0.2s ease-in-out 0s forwards;
         animation: fadeInUp 0.2s ease-in-out 0s forwards;
       }
+      @media (min-width: 481px) {
+        /*Changing the font size of the wheel color labels for mobile landscape view*/
+        #chart-container {
+          font-size: 0.7rem;
+        }
+      }
 
       @media (min-width: 720px) {
         .questions {
           width: 40%;
+        }
+
+        /*Changing the font size of the wheel color labels for desktop view*/
+        #chart-container {
+          font-size: 1rem;
         }
 
         #chartdiv {
@@ -788,9 +804,9 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
           if (target instanceof am4charts.Chart) {
             var state = target.states.create(stateId);
             state.properties.paddingTop = 5;
-            state.properties.paddingRight = 55;
+            state.properties.paddingRight = 20;
             state.properties.paddingBottom = 5;
-            state.properties.paddingLeft = 55;
+            state.properties.paddingLeft = 20;
             return state;
           }
           return null;
@@ -819,10 +835,12 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
 
       for (let i = 0; i < lastAnswers.length; i++) {
         lastAnswers[i].addEventListener("click", function () {
-          myForm.style.display = "block";
+          // myForm.style.display = "block";
           rateHeading.style.display = "none";
-          allDone.style.display = "none";
-          formSentence.style.display = "block";
+          allDone.style.display = "block";
+          //formSentence.style.display = "block";
+          resultBlock.style.display = "block";
+          myWheel.style.display = "block";
         });
       }
 
@@ -835,7 +853,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
           if (successSubscription.style.display == "block") {
             myForm.style.display = "none";
             myWheel.style.display = "block";
-            resultBlock.style.display = "block";
+            //resultBlock.style.display = "block";
 
             wheelContainer.style.display = "none";
             formSentence.style.display = "none";
