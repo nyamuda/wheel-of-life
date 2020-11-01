@@ -827,7 +827,6 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
 
       saveBtn.onclick = function () {
         window.print();
-        //saveBtn.style.color = '#e74c3c'
       };
 
       /*Add an event lister to all the possible answers(1-10) of the 
@@ -835,11 +834,10 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
 
       for (let i = 0; i < lastAnswers.length; i++) {
         lastAnswers[i].addEventListener("click", function () {
-          //myForm.style.display = "block";
+          myForm.style.display = "block";
           rateHeading.style.display = "none";
           allDone.style.display = "none";
-          //formSentence.style.display = "block";
-          myWheel.style.display = "block";
+          formSentence.style.display = "block";
         });
       }
 
