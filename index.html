@@ -39,6 +39,8 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
       /*Changing the font size of the wheel color labels for mobile view*/
       #chart-container {
         font-size: 0.5rem;
+        position: relative;
+        top: -3rem;
       }
 
       #all-done {
@@ -163,7 +165,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
         text-align: center;
         position: relative;
         display: none;
-        top: 1rem;
+        top: -1rem;
       }
 
       #thank {
@@ -232,6 +234,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
         /*Changing the font size of the wheel color labels for mobile landscape view*/
         #chart-container {
           font-size: 0.7rem;
+          top: -2rem;
         }
       }
 
@@ -243,6 +246,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
         /*Changing the font size of the wheel color labels for desktop view*/
         #chart-container {
           font-size: 1rem;
+          top: -1rem;
         }
 
         #chartdiv {
@@ -538,7 +542,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
       </div>
     </div>
     <div id="all-done" class="area" style="display: none">
-      <h3>All done!</h3>
+      <h3 id="done">All done!</h3>
     </div>
     <div id="form-sentence">
       <p id="clicks-away">Your Results are Just a Click Away!</p>
