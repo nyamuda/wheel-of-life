@@ -169,7 +169,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
       }
 
       #thank {
-        width: 60%;
+        width: 80%;
         margin: auto;
         font-size: 1.2rem;
         margin-top: 1rem;
@@ -236,11 +236,17 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
           font-size: 0.7rem;
           top: -2rem;
         }
+        #thank {
+          width: 70%;
+        }
       }
 
       @media (min-width: 720px) {
         .questions {
           width: 40%;
+        }
+        #thank {
+          width: 60%;
         }
 
         /*Changing the font size of the wheel color labels for desktop view*/
@@ -260,6 +266,19 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
 
         #form-sentence {
           width: 50%;
+        }
+      }
+      @media print {
+        #save-pdf,
+        #thank {
+          display: none !important;
+        }
+
+        #title-wheel {
+          font-size: 1rem !important;
+        }
+        #chartdiv {
+          font-size: 14px !important;
         }
       }
     </style>
@@ -323,7 +342,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
           </p>
         </div>
         <div class="area" style="display: none">
-          <h3>Creativity</h3>
+          <h3>Fun</h3>
 
           <div class="values">
             <div class="value" onclick="setValue(2, 1);">1</div>
@@ -339,10 +358,11 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
           </div>
 
           <p class="questions">
-            Are you satisfied with your creativity level? This doesn’t have to
-            be artistic creativity. Perhaps you’re most creative in your problem
-            solving or are more mechanically inclined and are able to express
-            yourself creatively that way.
+            Are you satisfied with the amount of “fun” you have in life? If
+            you’re an extrovert, this might mean spending time with friends or
+            going to your favorite events, and if you’re introverted, this might
+            look more like a Netflix bender or a small game night with close
+            friends. Is it often enough?
           </p>
         </div>
         <div class="area" style="display: none">
@@ -451,7 +471,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
           </p>
         </div>
         <div class="area" style="display: none">
-          <h3>Fun</h3>
+          <h3>Creativity</h3>
           <div class="values">
             <div class="value" onclick="setValue(8, 1);">1</div>
             <div class="value" onclick="setValue(8, 2);">2</div>
@@ -466,11 +486,10 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
           </div>
 
           <p class="questions">
-            Are you satisfied with the amount of “fun” you have in life? If
-            you’re an extrovert, this might mean spending time with friends or
-            going to your favorite events, and if you’re introverted, this might
-            look more like a Netflix bender or a small game night with close
-            friends. Is it often enough?
+            Are you satisfied with your creativity level? This doesn’t have to
+            be artistic creativity. Perhaps you’re most creative in your problem
+            solving or are more mechanically inclined and are able to express
+            yourself creatively that way.
           </p>
         </div>
         <div class="area" style="display: none">
@@ -706,7 +725,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
           color: "#5EA8DD",
         },
         {
-          category: "Creativity",
+          category: "Fun",
           value: 0,
           color: "#2265B0",
         },
@@ -736,7 +755,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
           color: "#D82E27",
         },
         {
-          category: "Fun",
+          category: "Creativity",
           value: 0,
           color: "#F07434",
         },
@@ -838,10 +857,12 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
 
       for (let i = 0; i < lastAnswers.length; i++) {
         lastAnswers[i].addEventListener("click", function () {
-          myForm.style.display = "block";
+          // myForm.style.display = "block";
           rateHeading.style.display = "none";
           allDone.style.display = "none";
-          formSentence.style.display = "block";
+          // formSentence.style.display = "block";
+          myWheel.style.display = "block";
+          resultBlock.style.display = "block";
         });
       }
 
