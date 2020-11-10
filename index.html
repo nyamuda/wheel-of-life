@@ -277,9 +277,6 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
         #title-wheel {
           font-size: 1rem !important;
         }
-        #chartdiv {
-          font-size: 14px !important;
-        }
       }
     </style>
   </head>
@@ -585,8 +582,11 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
       <p id="title-wheel">Your Wheel of Life</p>
       <button class="btn first" id="save-pdf">Save</button>
       <p id="thank">
-        Thank you for completing the wheel of life test! To discuss your results
-        with Joe, schedule a free personal coaching session below.
+        Thank you for completing the wheel of life test! These are your private
+        results. I encourage you to save them for personal reference and in case
+        you might like to share them with me in an initial consultation. To
+        discuss your Wheel of Life with me, schedule your free personal coaching
+        session below  
       </p>
     </div>
 
@@ -857,12 +857,10 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
 
       for (let i = 0; i < lastAnswers.length; i++) {
         lastAnswers[i].addEventListener("click", function () {
-          // myForm.style.display = "block";
+          myForm.style.display = "block";
           rateHeading.style.display = "none";
           allDone.style.display = "none";
-          // formSentence.style.display = "block";
-          myWheel.style.display = "block";
-          resultBlock.style.display = "block";
+          formSentence.style.display = "block";
         });
       }
 
