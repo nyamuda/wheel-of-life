@@ -269,8 +269,18 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
         }
       }
       @media print {
+        @page {
+          size: landscape;
+        }
+        #chart-container {
+          font-size: 0.65rem;
+          position: relative;
+          width: 100%;
+          margin-top: -10rem;
+        }
         #save-pdf,
-        #thank {
+        #thank,
+        #all-done {
           display: none !important;
         }
 
@@ -857,10 +867,12 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
 
       for (let i = 0; i < lastAnswers.length; i++) {
         lastAnswers[i].addEventListener("click", function () {
-          myForm.style.display = "block";
+          // myForm.style.display = "block";
           rateHeading.style.display = "none";
           allDone.style.display = "none";
-          formSentence.style.display = "block";
+          //formSentence.style.display = "block";
+          myWheel.style.display = "block";
+          resultBlock.style.display = "block";
         });
       }
 
