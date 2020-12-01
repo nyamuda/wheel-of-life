@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -8,596 +9,573 @@
     <title>Title</title>
 
     <!--MailChip link and style-->
-    <link
-      href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css" />
 
     <style type="text/css">
-      #mc_embed_signup {
-        background: #fff;
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
-        display: none;
-        position: relative;
-        top: -3rem;
-      }
-      /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+        #mc_embed_signup {
+            background: #fff;
+            clear: left;
+            font: 14px Helvetica, Arial, sans-serif;
+            display: none;
+            position: relative;
+            top: -3rem;
+        }
+        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
 We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
     </style>
 
     <!--End of MailChip link and style-->
 
     <style type="text/css">
-      body {
-        font-family: acumin-pro, sans-serif;
-        font-weight: 400;
-        font-style: normal;
-      }
-
-      /*Changing the font size of the wheel color labels for mobile view*/
-      #chart-container {
-        font-size: 0.5rem;
-        position: relative;
-        top: -3rem;
-      }
-
-      #all-done {
-        text-align: center;
-        position: relative;
-        margin: auto;
-      }
-
-      #chartdiv {
-        width: 100%;
-        height: 25rem;
-        display: none;
-        transition: all 0.2s ease-in-out;
-        position: relative;
-        top: 2rem;
-        margin: auto;
-      }
-
-      #form-sentence {
-        position: relative;
-        margin: auto;
-        width: 90%;
-        display: none;
-        top: -4rem;
-        font-size: 1rem;
-      }
-
-      #form-sentence p {
-        text-align: center;
-      }
-      #clicks-away {
-        font-weight: bold;
-      }
-
-      .areas {
-        text-align: center;
-        margin-bottom: 15px;
-        min-height: 95px;
-      }
-
-      .areas p {
-        position: relative;
-        margin: auto;
-        text-align: center;
-      }
-
-      .areas .value {
-        display: inline-block;
-        font-size: 1.3em;
-        padding: 5px 10px;
-        border: 1px solid #ddd;
-        cursor: pointer;
-        -webkit-transition: box-shadow 600ms ease-in-out,
-          color 600ms ease-in-out;
-        transition: box-shadow 600ms ease-in-out, color 600ms ease-in-out;
-      }
-
-      .areas .value:hover {
-        background: #ecc;
-        box-shadow: 0 0 40px 40px #e74c3c inset;
-        color: #fff;
-        outline: 0;
-      }
-
-      .btn {
-        box-sizing: border-box;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        background-color: transparent;
-        border: 2px solid #e74c3c;
-        border-radius: 0.6em;
-        color: #e74c3c;
-        cursor: pointer;
-        display: -webkit-box;
-        display: flex;
-        align-self: center;
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1;
-        margin: 20px;
-        padding: 0.8rem;
-        text-decoration: none;
-        text-align: center;
-        /*  text-transform: uppercase;*/
-        font-family: "Montserrat", sans-serif;
-        font-weight: 700;
-        margin: auto;
-        width: auto;
-        margin-top: -1rem;
-      }
-
-      .btn:hover {
-        color: #fff;
-        outline: 0;
-      }
-      #save-pdf:hover {
-        color: #fff;
-      }
-
-      .btn:focus {
-        color: #e74c3c;
-        outline: 0;
-      }
-
-      .btn:active {
-        color: #e74c3c;
-      }
-
-      .first {
-        -webkit-transition: box-shadow 300ms ease-in-out,
-          color 300ms ease-in-out;
-        transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-      }
-
-      .first:hover {
-        box-shadow: 0 0 40px 40px #e74c3c inset;
-      }
-
-      #result-block {
-        width: 100%;
-        text-align: center;
-        position: relative;
-        display: none;
-        top: -1rem;
-      }
-
-      #thank {
-        width: 80%;
-        margin: auto;
-        font-size: 1.2rem;
-        margin-top: 1rem;
-      }
-
-      #title-wheel {
-        font-size: 2rem;
-      }
-
-      #start-btn,
-      #rate-heading {
-        width: 100%;
-        text-align: center;
-        font-size: 1.5rem;
-        position: relative;
-      }
-
-      .questions {
-        font-size: 1.2rem;
-        min-height: 5rem;
-        width: 90%;
-        position: relative;
-        margin: auto;
-        text-align: center;
-        top: 1rem;
-      }
-
-      @-webkit-keyframes fadeInUp {
-        from {
-          opacity: 0;
-          -webkit-transform: translate3d(0, 100%, 0);
-          transform: translate3d(0, 100%, 0);
+        body {
+            font-family: acumin-pro, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            width: 100%;
+            overflow-x: hidden;
         }
-
-        to {
-          opacity: 1;
-          -webkit-transform: none;
-          transform: none;
-        }
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          -webkit-transform: translate3d(0, 100%, 0);
-          transform: translate3d(0, 100%, 0);
-        }
-
-        to {
-          opacity: 1;
-          -webkit-transform: none;
-          transform: none;
-        }
-      }
-
-      .questions {
-        opacity: 0;
-        -webkit-animation: fadeInUp 0.2s ease-in-out 0s forwards;
-        animation: fadeInUp 0.2s ease-in-out 0s forwards;
-      }
-      @media (min-width: 481px) {
-        /*Changing the font size of the wheel color labels for mobile landscape view*/
+        /*Changing the font size of the wheel color labels for mobile view*/
+        
         #chart-container {
-          font-size: 0.7rem;
-          top: -2rem;
+            font-size: 0.8rem;
+            position: relative;
+            top: -3rem;
+            width: 100%;
+            overflow-x: auto;
         }
-        #thank {
-          width: 70%;
-        }
-      }
-
-      @media (min-width: 720px) {
-        .questions {
-          width: 40%;
-        }
-        #thank {
-          width: 60%;
-        }
-
-        /*Changing the font size of the wheel color labels for desktop view*/
-        #chart-container {
-          font-size: 1rem;
-          top: -1rem;
-        }
-
-        #chartdiv {
-          height: 37.5rem;
-        }
-
-        #mc_embed_signup {
-          width: 40%;
-          margin: auto;
-        }
-
-        #form-sentence {
-          width: 50%;
-        }
-      }
-      @media print {
-        @page {
-          size: landscape;
-        }
-        #chart-container {
-          font-size: 0.65rem;
-          position: relative;
-          width: 100%;
-          margin-top: -10rem;
-        }
-        #save-pdf,
-        #thank,
+        
         #all-done {
-          display: none !important;
+            text-align: center;
+            position: relative;
+            margin: auto;
         }
-
+        
+        #chartdiv {
+            width: 25rem;
+            height: 25rem;
+            display: none;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            top: 2rem;
+            margin: auto;
+        }
+        
+        #form-sentence {
+            position: relative;
+            margin: auto;
+            width: 90%;
+            display: none;
+            top: -4rem;
+            font-size: 1rem;
+        }
+        
+        #form-sentence p {
+            text-align: center;
+        }
+        
+        #clicks-away {
+            font-weight: bold;
+        }
+        
+        .areas {
+            text-align: center;
+            margin-bottom: 15px;
+            min-height: 95px;
+        }
+        
+        .areas p {
+            position: relative;
+            margin: auto;
+            text-align: center;
+        }
+        
+        .areas .value {
+            display: inline-block;
+            font-size: 1.3em;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            -webkit-transition: box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+            transition: box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+        }
+        
+        .areas .value:hover {
+            background: #ecc;
+            box-shadow: 0 0 40px 40px #e74c3c inset;
+            color: #fff;
+            outline: 0;
+        }
+        
+        .btn {
+            box-sizing: border-box;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            border: 2px solid #e74c3c;
+            border-radius: 0.6em;
+            color: #e74c3c;
+            cursor: pointer;
+            display: -webkit-box;
+            display: flex;
+            align-self: center;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1;
+            margin: 20px;
+            padding: 0.8rem;
+            text-decoration: none;
+            text-align: center;
+            /*  text-transform: uppercase;*/
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            margin: auto;
+            width: auto;
+            margin-top: -1rem;
+        }
+        
+        .btn:hover {
+            color: #fff;
+            outline: 0;
+        }
+        
+        #save-pdf:hover {
+            color: #fff;
+        }
+        
+        .btn:focus {
+            color: #e74c3c;
+            outline: 0;
+        }
+        
+        .btn:active {
+            color: #e74c3c;
+        }
+        
+        .first {
+            -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+            transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+        }
+        
+        .first:hover {
+            box-shadow: 0 0 40px 40px #e74c3c inset;
+        }
+        
+        #result-block {
+            width: 100%;
+            text-align: center;
+            position: relative;
+            display: none;
+            top: -1rem;
+        }
+        
+        #thank {
+            width: 90%;
+            margin: auto;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        
         #title-wheel {
-          font-size: 1rem !important;
+            font-size: 2rem;
         }
-      }
+        
+        #start-btn,
+        #rate-heading {
+            width: 100%;
+            text-align: center;
+            font-size: 1.5rem;
+            position: relative;
+        }
+        
+        .questions {
+            font-size: 1.2rem;
+            min-height: 5rem;
+            width: 90%;
+            position: relative;
+            margin: auto;
+            text-align: center;
+            top: 1rem;
+        }
+        
+        @-webkit-keyframes fadeInUp {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 100%, 0);
+                transform: translate3d(0, 100%, 0);
+            }
+            to {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 100%, 0);
+                transform: translate3d(0, 100%, 0);
+            }
+            to {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none;
+            }
+        }
+        
+        .questions {
+            opacity: 0;
+            -webkit-animation: fadeInUp 0.2s ease-in-out 0s forwards;
+            animation: fadeInUp 0.2s ease-in-out 0s forwards;
+        }
+        
+        @media (max-width: 318px) {
+            /*Changing the font size of the wheel color labels for mobile landscape view*/
+            #chart-container {
+                top: -2rem;
+            }
+            #thank {
+                width: 90%;
+            }
+        }
+        
+        @media (min-width: 481px) {
+            /*Changing the font size of the wheel color labels for mobile landscape view*/
+            #chart-container {
+                font-size: 0.7rem;
+                top: -2rem;
+            }
+            #thank {
+                width: 70%;
+            }
+        }
+        
+        @media (min-width: 720px) {
+            .questions {
+                width: 40%;
+            }
+            #thank {
+                width: 60%;
+            }
+            /*Changing the font size of the wheel color labels for desktop view*/
+            #chart-container {
+                font-size: 1rem;
+                top: -1rem;
+                overflow-x: unset;
+            }
+            #chartdiv {
+                width: 100%;
+                height: 37.5rem;
+            }
+            #mc_embed_signup {
+                width: 40%;
+                margin: auto;
+            }
+            #form-sentence {
+                width: 50%;
+            }
+        }
+        
+        @media print {
+            @page {
+                size: landscape;
+            }
+            #chart-container {
+                font-size: 0.9rem;
+                position: relative;
+                width: 100%;
+                margin-top: -5rem;
+            }
+            #save-pdf,
+            #thank,
+            #all-done {
+                display: none !important;
+            }
+            #title-wheel {
+                font-size: 1rem !important;
+                margin-top: 1rem !important;
+            }
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <!----------------------------------------------------------WHEEL OF LIFE HTML CODE-------------------------------------------------------->
 
     <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
     <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
     <div id="start-btn">
-      <!--   <button class="btn first">Start</button> -->
+        <!--   <button class="btn first">Start</button> -->
     </div>
     <div id="rate-heading">
-      <p>Rate your current level of satisfaction for this area of your life.</p>
+        <p>Rate your current level of satisfaction for this area of your life.</p>
     </div>
     <div id="wheel-container">
-      <div class="areas">
-        <div class="area">
-          <h3>Health</h3>
-          <div class="values">
-            <div class="value" onclick="setValue(0, 1);">1</div>
-            <div class="value" onclick="setValue(0, 2);">2</div>
-            <div class="value" onclick="setValue(0, 3);">3</div>
-            <div class="value" onclick="setValue(0, 4);">4</div>
-            <div class="value" onclick="setValue(0, 5);">5</div>
-            <div class="value" onclick="setValue(0, 6);">6</div>
-            <div class="value" onclick="setValue(0, 7);">7</div>
-            <div class="value" onclick="setValue(0, 8);">8</div>
-            <div class="value" onclick="setValue(0, 9);">9</div>
-            <div class="value" onclick="setValue(0, 10);">10</div>
-          </div>
-          <p class="questions">
-            Are you satisfied with your current health status? Are you
-            comfortable with your exercise levels or diet? Is there any medical
-            condition you have that might be keeping you from living
-            intentionally?
-          </p>
+        <div class="areas">
+            <div class="area">
+                <h3>Health</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(0, 1);">1</div>
+                    <div class="value" onclick="setValue(0, 2);">2</div>
+                    <div class="value" onclick="setValue(0, 3);">3</div>
+                    <div class="value" onclick="setValue(0, 4);">4</div>
+                    <div class="value" onclick="setValue(0, 5);">5</div>
+                    <div class="value" onclick="setValue(0, 6);">6</div>
+                    <div class="value" onclick="setValue(0, 7);">7</div>
+                    <div class="value" onclick="setValue(0, 8);">8</div>
+                    <div class="value" onclick="setValue(0, 9);">9</div>
+                    <div class="value" onclick="setValue(0, 10);">10</div>
+                </div>
+                <p class="questions">
+                    Are you satisfied with your current health status? Are you comfortable with your exercise levels or diet? Is there any medical condition you have that might be keeping you from living intentionally?
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Spirituality</h3>
+
+                <div class="values">
+                    <div class="value" onclick="setValue(1, 1);">1</div>
+                    <div class="value" onclick="setValue(1, 2);">2</div>
+                    <div class="value" onclick="setValue(1, 3);">3</div>
+                    <div class="value" onclick="setValue(1, 4);">4</div>
+                    <div class="value" onclick="setValue(1, 5);">5</div>
+                    <div class="value" onclick="setValue(1, 6);">6</div>
+                    <div class="value" onclick="setValue(1, 7);">7</div>
+                    <div class="value" onclick="setValue(1, 8);">8</div>
+                    <div class="value" onclick="setValue(1, 9);">9</div>
+                    <div class="value" onclick="setValue(1, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    Are you satisfied in your spiritual practices? For some this is religious, for others it may be more likened to meditation. This rating is about how you perceive your individual spirituality.
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Fun</h3>
+
+                <div class="values">
+                    <div class="value" onclick="setValue(2, 1);">1</div>
+                    <div class="value" onclick="setValue(2, 2);">2</div>
+                    <div class="value" onclick="setValue(2, 3);">3</div>
+                    <div class="value" onclick="setValue(2, 4);">4</div>
+                    <div class="value" onclick="setValue(2, 5);">5</div>
+                    <div class="value" onclick="setValue(2, 6);">6</div>
+                    <div class="value" onclick="setValue(2, 7);">7</div>
+                    <div class="value" onclick="setValue(2, 8);">8</div>
+                    <div class="value" onclick="setValue(2, 9);">9</div>
+                    <div class="value" onclick="setValue(2, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    Are you satisfied with the amount of “fun” you have in life? If you’re an extrovert, this might mean spending time with friends or going to your favorite events, and if you’re introverted, this might look more like a Netflix bender or a small game night
+                    with close friends. Is it often enough?
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Career/Education</h3>
+
+                <div class="values">
+                    <div class="value" onclick="setValue(3, 1);">1</div>
+                    <div class="value" onclick="setValue(3, 2);">2</div>
+                    <div class="value" onclick="setValue(3, 3);">3</div>
+                    <div class="value" onclick="setValue(3, 4);">4</div>
+                    <div class="value" onclick="setValue(3, 5);">5</div>
+                    <div class="value" onclick="setValue(3, 6);">6</div>
+                    <div class="value" onclick="setValue(3, 7);">7</div>
+                    <div class="value" onclick="setValue(3, 8);">8</div>
+                    <div class="value" onclick="setValue(3, 9);">9</div>
+                    <div class="value" onclick="setValue(3, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    Do you enjoy your job (or education path)? Is it fulfilling work and your ideal career path, or does something feel missing?
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Family</h3>
+
+                <div class="values">
+                    <div class="value" onclick="setValue(4, 1);">1</div>
+                    <div class="value" onclick="setValue(4, 2);">2</div>
+                    <div class="value" onclick="setValue(4, 3);">3</div>
+                    <div class="value" onclick="setValue(4, 4);">4</div>
+                    <div class="value" onclick="setValue(4, 5);">5</div>
+                    <div class="value" onclick="setValue(4, 6);">6</div>
+                    <div class="value" onclick="setValue(4, 7);">7</div>
+                    <div class="value" onclick="setValue(4, 8);">8</div>
+                    <div class="value" onclick="setValue(4, 9);">9</div>
+                    <div class="value" onclick="setValue(4, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    What’s your family dynamic like? You can rate either or both of your immediate and extended family.
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Finances</h3>
+
+                <div class="values">
+                    <div class="value" onclick="setValue(5, 1);">1</div>
+                    <div class="value" onclick="setValue(5, 2);">2</div>
+                    <div class="value" onclick="setValue(5, 3);">3</div>
+                    <div class="value" onclick="setValue(5, 4);">4</div>
+                    <div class="value" onclick="setValue(5, 5);">5</div>
+                    <div class="value" onclick="setValue(5, 6);">6</div>
+                    <div class="value" onclick="setValue(5, 7);">7</div>
+                    <div class="value" onclick="setValue(5, 8);">8</div>
+                    <div class="value" onclick="setValue(5, 9);">9</div>
+                    <div class="value" onclick="setValue(5, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    How comfortable are you with your financial situation?
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Intimate Relationships</h3>
+
+                <div class="values">
+                    <div class="value" onclick="setValue(6, 1);">1</div>
+                    <div class="value" onclick="setValue(6, 2);">2</div>
+                    <div class="value" onclick="setValue(6, 3);">3</div>
+                    <div class="value" onclick="setValue(6, 4);">4</div>
+                    <div class="value" onclick="setValue(6, 5);">5</div>
+                    <div class="value" onclick="setValue(6, 6);">6</div>
+                    <div class="value" onclick="setValue(6, 7);">7</div>
+                    <div class="value" onclick="setValue(6, 8);">8</div>
+                    <div class="value" onclick="setValue(6, 9);">9</div>
+                    <div class="value" onclick="setValue(6, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    How satisfied are you with your intimate relationships? With your family, spouse/partner, and close friends – are they mostly positive? Mostly negative? In need of repair?
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Social Relationships</h3>
+
+                <div class="values">
+                    <div class="value" onclick="setValue(7, 1);">1</div>
+                    <div class="value" onclick="setValue(7, 2);">2</div>
+                    <div class="value" onclick="setValue(7, 3);">3</div>
+                    <div class="value" onclick="setValue(7, 4);">4</div>
+                    <div class="value" onclick="setValue(7, 5);">5</div>
+                    <div class="value" onclick="setValue(7, 6);">6</div>
+                    <div class="value" onclick="setValue(7, 7);">7</div>
+                    <div class="value" onclick="setValue(7, 8);">8</div>
+                    <div class="value" onclick="setValue(7, 9);">9</div>
+                    <div class="value" onclick="setValue(7, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    How would you rate your social relationships? Do you have enough? Are they quality relationships?
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Creativity</h3>
+                <div class="values">
+                    <div class="value" onclick="setValue(8, 1);">1</div>
+                    <div class="value" onclick="setValue(8, 2);">2</div>
+                    <div class="value" onclick="setValue(8, 3);">3</div>
+                    <div class="value" onclick="setValue(8, 4);">4</div>
+                    <div class="value" onclick="setValue(8, 5);">5</div>
+                    <div class="value" onclick="setValue(8, 6);">6</div>
+                    <div class="value" onclick="setValue(8, 7);">7</div>
+                    <div class="value" onclick="setValue(8, 8);">8</div>
+                    <div class="value" onclick="setValue(8, 9);">9</div>
+                    <div class="value" onclick="setValue(8, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    Are you satisfied with your creativity level? This doesn’t have to be artistic creativity. Perhaps you’re most creative in your problem solving or are more mechanically inclined and are able to express yourself creatively that way.
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Personal Growth</h3>
+
+                <div class="values">
+                    <div class="value" onclick="setValue(9, 1);">1</div>
+                    <div class="value" onclick="setValue(9, 2);">2</div>
+                    <div class="value" onclick="setValue(9, 3);">3</div>
+                    <div class="value" onclick="setValue(9, 4);">4</div>
+                    <div class="value" onclick="setValue(9, 5);">5</div>
+                    <div class="value" onclick="setValue(9, 6);">6</div>
+                    <div class="value" onclick="setValue(9, 7);">7</div>
+                    <div class="value" onclick="setValue(9, 9);">8</div>
+                    <div class="value" onclick="setValue(9, 9);">9</div>
+                    <div class="value" onclick="setValue(9, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    Are you content in your path for personal growth? Do you feel like you’re in need of growth in a certain area of your personal life, or are you satisfied with your current efforts?
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Contribution</h3>
+
+                <div class="values">
+                    <div class="value" onclick="setValue(10, 1);">1</div>
+                    <div class="value" onclick="setValue(10, 2);">2</div>
+                    <div class="value" onclick="setValue(10, 3);">3</div>
+                    <div class="value" onclick="setValue(10, 4);">4</div>
+                    <div class="value" onclick="setValue(10, 5);">5</div>
+                    <div class="value" onclick="setValue(10, 6);">6</div>
+                    <div class="value" onclick="setValue(10, 7);">7</div>
+                    <div class="value" onclick="setValue(10, 8);">8</div>
+                    <div class="value" onclick="setValue(10, 9);">9</div>
+                    <div class="value" onclick="setValue(10, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    How would you rate your contribution to society? Your family? Your work? Anywhere you might be a contributing party – think about your satisfaction level.
+                </p>
+            </div>
+            <div class="area" style="display: none">
+                <h3>Physical Environment</h3>
+
+                <div class="values">
+                    <div class="value show-chart" onclick="setValue(11, 1);">1</div>
+                    <div class="value show-chart" onclick="setValue(11, 2);">2</div>
+                    <div class="value show-chart" onclick="setValue(11, 3);">3</div>
+                    <div class="value show-chart" onclick="setValue(11, 4);">4</div>
+                    <div class="value show-chart" onclick="setValue(11, 5);">5</div>
+                    <div class="value show-chart" onclick="setValue(11, 6);">6</div>
+                    <div class="value show-chart" onclick="setValue(11, 7);">7</div>
+                    <div class="value show-chart" onclick="setValue(11, 8);">8</div>
+                    <div class="value show-chart" onclick="setValue(11, 9);">9</div>
+                    <div class="value show-chart" onclick="setValue(11, 10);">10</div>
+                </div>
+
+                <p class="questions">
+                    How satisfied are you with your physical surroundings overall? How about specific places that you spend a lot of time, like your office, or where you relax? Your home?
+                </p>
+            </div>
         </div>
-        <div class="area" style="display: none">
-          <h3>Spirituality</h3>
-
-          <div class="values">
-            <div class="value" onclick="setValue(1, 1);">1</div>
-            <div class="value" onclick="setValue(1, 2);">2</div>
-            <div class="value" onclick="setValue(1, 3);">3</div>
-            <div class="value" onclick="setValue(1, 4);">4</div>
-            <div class="value" onclick="setValue(1, 5);">5</div>
-            <div class="value" onclick="setValue(1, 6);">6</div>
-            <div class="value" onclick="setValue(1, 7);">7</div>
-            <div class="value" onclick="setValue(1, 8);">8</div>
-            <div class="value" onclick="setValue(1, 9);">9</div>
-            <div class="value" onclick="setValue(1, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            Are you satisfied in your spiritual practices? For some this is
-            religious, for others it may be more likened to meditation. This
-            rating is about how you perceive your individual spirituality.
-          </p>
-        </div>
-        <div class="area" style="display: none">
-          <h3>Fun</h3>
-
-          <div class="values">
-            <div class="value" onclick="setValue(2, 1);">1</div>
-            <div class="value" onclick="setValue(2, 2);">2</div>
-            <div class="value" onclick="setValue(2, 3);">3</div>
-            <div class="value" onclick="setValue(2, 4);">4</div>
-            <div class="value" onclick="setValue(2, 5);">5</div>
-            <div class="value" onclick="setValue(2, 6);">6</div>
-            <div class="value" onclick="setValue(2, 7);">7</div>
-            <div class="value" onclick="setValue(2, 8);">8</div>
-            <div class="value" onclick="setValue(2, 9);">9</div>
-            <div class="value" onclick="setValue(2, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            Are you satisfied with the amount of “fun” you have in life? If
-            you’re an extrovert, this might mean spending time with friends or
-            going to your favorite events, and if you’re introverted, this might
-            look more like a Netflix bender or a small game night with close
-            friends. Is it often enough?
-          </p>
-        </div>
-        <div class="area" style="display: none">
-          <h3>Career/Education</h3>
-
-          <div class="values">
-            <div class="value" onclick="setValue(3, 1);">1</div>
-            <div class="value" onclick="setValue(3, 2);">2</div>
-            <div class="value" onclick="setValue(3, 3);">3</div>
-            <div class="value" onclick="setValue(3, 4);">4</div>
-            <div class="value" onclick="setValue(3, 5);">5</div>
-            <div class="value" onclick="setValue(3, 6);">6</div>
-            <div class="value" onclick="setValue(3, 7);">7</div>
-            <div class="value" onclick="setValue(3, 8);">8</div>
-            <div class="value" onclick="setValue(3, 9);">9</div>
-            <div class="value" onclick="setValue(3, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            Do you enjoy your job (or education path)? Is it fulfilling work and
-            your ideal career path, or does something feel missing?
-          </p>
-        </div>
-        <div class="area" style="display: none">
-          <h3>Family</h3>
-
-          <div class="values">
-            <div class="value" onclick="setValue(4, 1);">1</div>
-            <div class="value" onclick="setValue(4, 2);">2</div>
-            <div class="value" onclick="setValue(4, 3);">3</div>
-            <div class="value" onclick="setValue(4, 4);">4</div>
-            <div class="value" onclick="setValue(4, 5);">5</div>
-            <div class="value" onclick="setValue(4, 6);">6</div>
-            <div class="value" onclick="setValue(4, 7);">7</div>
-            <div class="value" onclick="setValue(4, 8);">8</div>
-            <div class="value" onclick="setValue(4, 9);">9</div>
-            <div class="value" onclick="setValue(4, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            What’s your family dynamic like? You can rate either or both of your
-            immediate and extended family.
-          </p>
-        </div>
-        <div class="area" style="display: none">
-          <h3>Finances</h3>
-
-          <div class="values">
-            <div class="value" onclick="setValue(5, 1);">1</div>
-            <div class="value" onclick="setValue(5, 2);">2</div>
-            <div class="value" onclick="setValue(5, 3);">3</div>
-            <div class="value" onclick="setValue(5, 4);">4</div>
-            <div class="value" onclick="setValue(5, 5);">5</div>
-            <div class="value" onclick="setValue(5, 6);">6</div>
-            <div class="value" onclick="setValue(5, 7);">7</div>
-            <div class="value" onclick="setValue(5, 8);">8</div>
-            <div class="value" onclick="setValue(5, 9);">9</div>
-            <div class="value" onclick="setValue(5, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            How comfortable are you with your financial situation?
-          </p>
-        </div>
-        <div class="area" style="display: none">
-          <h3>Intimate Relationships</h3>
-
-          <div class="values">
-            <div class="value" onclick="setValue(6, 1);">1</div>
-            <div class="value" onclick="setValue(6, 2);">2</div>
-            <div class="value" onclick="setValue(6, 3);">3</div>
-            <div class="value" onclick="setValue(6, 4);">4</div>
-            <div class="value" onclick="setValue(6, 5);">5</div>
-            <div class="value" onclick="setValue(6, 6);">6</div>
-            <div class="value" onclick="setValue(6, 7);">7</div>
-            <div class="value" onclick="setValue(6, 8);">8</div>
-            <div class="value" onclick="setValue(6, 9);">9</div>
-            <div class="value" onclick="setValue(6, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            How satisfied are you with your intimate relationships? With your
-            family, spouse/partner, and close friends – are they mostly
-            positive? Mostly negative? In need of repair?
-          </p>
-        </div>
-        <div class="area" style="display: none">
-          <h3>Social Relationships</h3>
-
-          <div class="values">
-            <div class="value" onclick="setValue(7, 1);">1</div>
-            <div class="value" onclick="setValue(7, 2);">2</div>
-            <div class="value" onclick="setValue(7, 3);">3</div>
-            <div class="value" onclick="setValue(7, 4);">4</div>
-            <div class="value" onclick="setValue(7, 5);">5</div>
-            <div class="value" onclick="setValue(7, 6);">6</div>
-            <div class="value" onclick="setValue(7, 7);">7</div>
-            <div class="value" onclick="setValue(7, 8);">8</div>
-            <div class="value" onclick="setValue(7, 9);">9</div>
-            <div class="value" onclick="setValue(7, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            How would you rate your social relationships? Do you have enough?
-            Are they quality relationships?
-          </p>
-        </div>
-        <div class="area" style="display: none">
-          <h3>Creativity</h3>
-          <div class="values">
-            <div class="value" onclick="setValue(8, 1);">1</div>
-            <div class="value" onclick="setValue(8, 2);">2</div>
-            <div class="value" onclick="setValue(8, 3);">3</div>
-            <div class="value" onclick="setValue(8, 4);">4</div>
-            <div class="value" onclick="setValue(8, 5);">5</div>
-            <div class="value" onclick="setValue(8, 6);">6</div>
-            <div class="value" onclick="setValue(8, 7);">7</div>
-            <div class="value" onclick="setValue(8, 8);">8</div>
-            <div class="value" onclick="setValue(8, 9);">9</div>
-            <div class="value" onclick="setValue(8, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            Are you satisfied with your creativity level? This doesn’t have to
-            be artistic creativity. Perhaps you’re most creative in your problem
-            solving or are more mechanically inclined and are able to express
-            yourself creatively that way.
-          </p>
-        </div>
-        <div class="area" style="display: none">
-          <h3>Personal Growth</h3>
-
-          <div class="values">
-            <div class="value" onclick="setValue(9, 1);">1</div>
-            <div class="value" onclick="setValue(9, 2);">2</div>
-            <div class="value" onclick="setValue(9, 3);">3</div>
-            <div class="value" onclick="setValue(9, 4);">4</div>
-            <div class="value" onclick="setValue(9, 5);">5</div>
-            <div class="value" onclick="setValue(9, 6);">6</div>
-            <div class="value" onclick="setValue(9, 7);">7</div>
-            <div class="value" onclick="setValue(9, 9);">8</div>
-            <div class="value" onclick="setValue(9, 9);">9</div>
-            <div class="value" onclick="setValue(9, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            Are you content in your path for personal growth? Do you feel like
-            you’re in need of growth in a certain area of your personal life, or
-            are you satisfied with your current efforts?
-          </p>
-        </div>
-        <div class="area" style="display: none">
-          <h3>Contribution</h3>
-
-          <div class="values">
-            <div class="value" onclick="setValue(10, 1);">1</div>
-            <div class="value" onclick="setValue(10, 2);">2</div>
-            <div class="value" onclick="setValue(10, 3);">3</div>
-            <div class="value" onclick="setValue(10, 4);">4</div>
-            <div class="value" onclick="setValue(10, 5);">5</div>
-            <div class="value" onclick="setValue(10, 6);">6</div>
-            <div class="value" onclick="setValue(10, 7);">7</div>
-            <div class="value" onclick="setValue(10, 8);">8</div>
-            <div class="value" onclick="setValue(10, 9);">9</div>
-            <div class="value" onclick="setValue(10, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            How would you rate your contribution to society? Your family? Your
-            work? Anywhere you might be a contributing party – think about your
-            satisfaction level.
-          </p>
-        </div>
-        <div class="area" style="display: none">
-          <h3>Physical Environment</h3>
-
-          <div class="values">
-            <div class="value show-chart" onclick="setValue(11, 1);">1</div>
-            <div class="value show-chart" onclick="setValue(11, 2);">2</div>
-            <div class="value show-chart" onclick="setValue(11, 3);">3</div>
-            <div class="value show-chart" onclick="setValue(11, 4);">4</div>
-            <div class="value show-chart" onclick="setValue(11, 5);">5</div>
-            <div class="value show-chart" onclick="setValue(11, 6);">6</div>
-            <div class="value show-chart" onclick="setValue(11, 7);">7</div>
-            <div class="value show-chart" onclick="setValue(11, 8);">8</div>
-            <div class="value show-chart" onclick="setValue(11, 9);">9</div>
-            <div class="value show-chart" onclick="setValue(11, 10);">10</div>
-          </div>
-
-          <p class="questions">
-            How satisfied are you with your physical surroundings overall? How
-            about specific places that you spend a lot of time, like your
-            office, or where you relax? Your home?
-          </p>
-        </div>
-      </div>
     </div>
     <div id="all-done" class="area" style="display: none">
-      <h3 id="done">All done!</h3>
+        <h3 id="done">All done!</h3>
     </div>
     <div id="form-sentence">
-      <p id="clicks-away">Your Results are Just a Click Away!</p>
-      <p>
-        You’ve just rated 12 major areas of life that work together to balance
-        your perceived satisfaction. This tool is especially helpful for people
-        who can’t quite pinpoint where they want to make a change, but know that
-        change is necessary for growth. Enter your email below for a copy of
-        your personalized Wheel of Life. This visual representation of your
-        satisfaction across these areas of your life is often a useful and
-        critical first step in identifying what and how to move forward. Coach
-        Joe will reach out to you in a couple of days with some insights on your
-        ratings and offer some challenges to help move you forward.
-      </p>
+        <p id="clicks-away">Your Results are Just a Click Away!</p>
+        <p>
+            You’ve just rated 12 major areas of life that work together to balance your perceived satisfaction. This tool is especially helpful for people who can’t quite pinpoint where they want to make a change, but know that change is necessary for growth. Enter
+            your email below for a copy of your personalized Wheel of Life. This visual representation of your satisfaction across these areas of your life is often a useful and critical first step in identifying what and how to move forward. Coach Joe
+            will reach out to you in a couple of days with some insights on your ratings and offer some challenges to help move you forward.
+        </p>
     </div>
 
     <div id="chart-container">
-      <div id="chartdiv"></div>
+        <div id="chartdiv"></div>
     </div>
     <div id="result-block">
-      <p id="title-wheel">Your Wheel of Life</p>
-      <button class="btn first" id="save-pdf">Save</button>
-      <p id="thank">
-        Thank you for completing the wheel of life test! These are your private
-        results. I encourage you to save them for personal reference and in case
-        you might like to share them with me in an initial consultation. To
-        discuss your Wheel of Life with me, schedule your free personal coaching
-        session below  
-      </p>
+        <p id="title-wheel">Your Wheel of Life</p>
+        <button class="btn first" id="save-pdf">Save</button>
+        <p id="thank">
+            Thank you for completing the wheel of life test! These are your private results. I encourage you to save them for personal reference and in case you might like to share them with me in an initial consultation. To discuss your Wheel of Life with me, schedule
+            your free personal coaching session below
+        </p>
     </div>
 
     <!-----------------------------------------------------END WHEEL OF LIFE HTML CODE-------------------------------------------------------->
@@ -607,95 +585,57 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
     <!-- Begin Mailchimp Signup Form -->
 
     <div id="mc_embed_signup">
-      <form
-        action="https://JoeBukartek.us10.list-manage.com/subscribe/post?u=e5569f6dd83faae4d58d331dd&amp;id=d19fa00d25"
-        method="post"
-        id="mc-embedded-subscribe-form"
-        name="mc-embedded-subscribe-form"
-        class="validate"
-        target="_blank"
-        novalidate
-      >
-        <div id="mc_embed_signup_scroll">
-          <div class="indicates-required">
-            <span class="asterisk">*</span> indicates required
-          </div>
-          <div class="mc-field-group">
-            <label for="mce-EMAIL"
-              >Email Address <span class="asterisk">*</span>
+        <form action="https://JoeBukartek.us10.list-manage.com/subscribe/post?u=e5569f6dd83faae4d58d331dd&amp;id=d19fa00d25" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+                <div class="indicates-required">
+                    <span class="asterisk">*</span> indicates required
+                </div>
+                <div class="mc-field-group">
+                    <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
             </label>
-            <input
-              type="email"
-              value=""
-              name="EMAIL"
-              class="required email"
-              id="mce-EMAIL"
-            />
-          </div>
-          <div class="mc-field-group">
-            <label for="mce-FNAME">First Name </label>
-            <input type="text" value="" name="FNAME" class="" id="mce-FNAME" />
-          </div>
-          <div class="mc-field-group">
-            <label for="mce-LNAME">Last Name </label>
-            <input type="text" value="" name="LNAME" class="" id="mce-LNAME" />
-          </div>
-          <div id="mce-responses" class="clear">
-            <div
-              class="response"
-              id="mce-error-response"
-              style="display: none"
-            ></div>
-            <div
-              class="response"
-              id="mce-success-response"
-              style="display: none"
-            ></div>
-          </div>
-          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-          <div style="position: absolute; left: -5000px" aria-hidden="true">
-            <input
-              type="text"
-              name="b_e5569f6dd83faae4d58d331dd_d19fa00d25"
-              tabindex="-1"
-              value=""
-            />
-          </div>
-          <div class="clear">
-            <input
-              onclick="subscribeButton()"
-              type="submit"
-              value="Enter"
-              name="Enter"
-              id="mc-embedded-subscribe"
-              class="button"
-            />
-          </div>
-        </div>
-      </form>
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" />
+                </div>
+                <div class="mc-field-group">
+                    <label for="mce-FNAME">First Name </label>
+                    <input type="text" value="" name="FNAME" class="" id="mce-FNAME" />
+                </div>
+                <div class="mc-field-group">
+                    <label for="mce-LNAME">Last Name </label>
+                    <input type="text" value="" name="LNAME" class="" id="mce-LNAME" />
+                </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display: none"></div>
+                    <div class="response" id="mce-success-response" style="display: none"></div>
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px" aria-hidden="true">
+                    <input type="text" name="b_e5569f6dd83faae4d58d331dd_d19fa00d25" tabindex="-1" value="" />
+                </div>
+                <div class="clear">
+                    <input onclick="subscribeButton()" type="submit" value="Enter" name="Enter" id="mc-embedded-subscribe" class="button" />
+                </div>
+            </div>
+        </form>
     </div>
-    <script
-      type="text/javascript"
-      src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
-    ></script>
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
     <script type="text/javascript">
-      (function ($) {
-        window.fnames = new Array();
-        window.ftypes = new Array();
-        fnames[0] = "EMAIL";
-        ftypes[0] = "email";
-        fnames[1] = "FNAME";
-        ftypes[1] = "text";
-        fnames[2] = "LNAME";
-        ftypes[2] = "text";
-        fnames[3] = "ADDRESS";
-        ftypes[3] = "address";
-        fnames[4] = "PHONE";
-        ftypes[4] = "phone";
-        fnames[5] = "BIRTHDAY";
-        ftypes[5] = "birthday";
-      })(jQuery);
-      var $mcj = jQuery.noConflict(true);
+        (function($) {
+            window.fnames = new Array();
+            window.ftypes = new Array();
+            fnames[0] = "EMAIL";
+            ftypes[0] = "email";
+            fnames[1] = "FNAME";
+            ftypes[1] = "text";
+            fnames[2] = "LNAME";
+            ftypes[2] = "text";
+            fnames[3] = "ADDRESS";
+            ftypes[3] = "address";
+            fnames[4] = "PHONE";
+            ftypes[4] = "phone";
+            fnames[5] = "BIRTHDAY";
+            ftypes[5] = "birthday";
+        })(jQuery);
+        var $mcj = jQuery.noConflict(true);
     </script>
     <!--End mc_embed_signup-->
 
@@ -704,196 +644,185 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
     <!---------------------------------------------------------WHEEL OF LIFE JS CODE-------------------------------------------------------->
 
     <script type="text/javascript">
-      /**
-       * ---------------------------------------
-       * This demo was created using amCharts 4.
-       *
-       * For more information visit:
-       * https://www.amcharts.com/
-       *
-       * Documentation is available at:
-       * https://www.amcharts.com/docs/v4/
-       * ---------------------------------------
-       */
+        /**
+         * ---------------------------------------
+         * This demo was created using amCharts 4.
+         *
+         * For more information visit:
+         * https://www.amcharts.com/
+         *
+         * Documentation is available at:
+         * https://www.amcharts.com/docs/v4/
+         * ---------------------------------------
+         */
 
-      // Themes begin
-      am4core.useTheme(am4themes_animated);
-      // Themes end
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
 
-      var chart = am4core.create("chartdiv", am4charts.RadarChart);
-      chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+        var chart = am4core.create("chartdiv", am4charts.RadarChart);
+        chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
 
-      chart.data = [
-        {
-          category: "Health",
-          value: 0,
-          color: "#4BA69F",
-        },
-        {
-          category: "Spirituality",
-          value: 0,
-          color: "#5EA8DD",
-        },
-        {
-          category: "Fun",
-          value: 0,
-          color: "#2265B0",
-        },
-        {
-          category: "Career",
-          value: 0,
-          color: "#583F89",
-        },
-        {
-          category: "Family",
-          value: 0,
-          color: "#7C428A",
-        },
-        {
-          category: "Finances",
-          value: 0,
-          color: "#B52966",
-        },
-        {
-          category: "Intimate\nRelationships",
-          value: 0,
-          color: "#DD3071",
-        },
-        {
-          category: "Social\nRelationships",
-          value: 0,
-          color: "#D82E27",
-        },
-        {
-          category: "Creativity",
-          value: 0,
-          color: "#F07434",
-        },
-        {
-          category: "Personal\nGrowth",
-          value: 0,
-          color: "#FBEE45",
-        },
-        {
-          category: "Contribution",
-          value: 0,
-          color: "#BBD237",
-        },
-        {
-          category: "Physical\nEnvironment",
-          value: 0,
-          color: "#60A845",
-        },
-      ];
+        chart.data = [{
+            category: "Health",
+            value: 0,
+            color: "#4BA69F",
+        }, {
+            category: "Spirituality",
+            value: 0,
+            color: "#5EA8DD",
+        }, {
+            category: "Fun",
+            value: 0,
+            color: "#2265B0",
+        }, {
+            category: "Career",
+            value: 0,
+            color: "#583F89",
+        }, {
+            category: "Family",
+            value: 0,
+            color: "#7C428A",
+        }, {
+            category: "Finances",
+            value: 0,
+            color: "#B52966",
+        }, {
+            category: "Intimate\nRelationships",
+            value: 0,
+            color: "#DD3071",
+        }, {
+            category: "Social\nRelationships",
+            value: 0,
+            color: "#D82E27",
+        }, {
+            category: "Creativity",
+            value: 0,
+            color: "#F07434",
+        }, {
+            category: "Personal\nGrowth",
+            value: 0,
+            color: "#FBEE45",
+        }, {
+            category: "Contribution",
+            value: 0,
+            color: "#BBD237",
+        }, {
+            category: "Physical\nEnvironment",
+            value: 0,
+            color: "#60A845",
+        }, ];
 
-      chart.padding(20, 20, 20, 20);
+        chart.padding(20, 20, 20, 20);
 
-      var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-      categoryAxis.dataFields.category = "category";
-      categoryAxis.renderer.labels.template.location = 0.5;
-      categoryAxis.renderer.tooltipLocation = 0.5;
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "category";
+        categoryAxis.renderer.labels.template.location = 0.5;
+        categoryAxis.renderer.tooltipLocation = 0.5;
 
-      var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-      valueAxis.renderer.labels.template.disabled = true;
-      valueAxis.min = 0;
-      valueAxis.max = 10;
-      valueAxis.renderer.minGridDistance = 10;
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.renderer.labels.template.disabled = true;
+        valueAxis.min = 0;
+        valueAxis.max = 10;
+        valueAxis.renderer.minGridDistance = 10;
 
-      var series = chart.series.push(new am4charts.RadarColumnSeries());
-      series.columns.template.tooltipText = "{categoryX}: {valueY.value}";
-      series.columns.template.width = am4core.percent(100);
-      series.columns.template.strokeWidth = 0;
-      series.columns.template.column.propertyFields.fill = "color";
-      series.dataFields.categoryX = "category";
-      series.dataFields.valueY = "value";
+        var series = chart.series.push(new am4charts.RadarColumnSeries());
+        series.columns.template.tooltipText = "{categoryX}: {valueY.value}";
+        series.columns.template.width = am4core.percent(100);
+        series.columns.template.strokeWidth = 0;
+        series.columns.template.column.propertyFields.fill = "color";
+        series.dataFields.categoryX = "category";
+        series.dataFields.valueY = "value";
 
-      /**
-       * Sets value for particular index
-       */
-      function setValue(index, value) {
-        // Set value
-        chart.data[index].value = value;
-        chart.invalidateRawData();
+        /**
+         * Sets value for particular index
+         */
+        function setValue(index, value) {
+            // Set value
+            chart.data[index].value = value;
+            chart.invalidateRawData();
 
-        // Reveal next question
-        var areas = document.getElementsByClassName("area");
-        for (var i = 0; i < areas.length; i++) {
-          areas[i].style.display = index + 1 === i ? "block" : "none";
+            // Reveal next question
+            var areas = document.getElementsByClassName("area");
+            for (var i = 0; i < areas.length; i++) {
+                areas[i].style.display = index + 1 === i ? "block" : "none";
+            }
         }
-      }
 
-      chart.responsive.useDefault = false;
-      chart.responsive.enabled = true;
+        chart.responsive.useDefault = false;
+        chart.responsive.enabled = true;
 
-      chart.responsive.rules.push({
-        relevant: function (target) {
-          if (target.pixelWidth <= 400) {
-            return true;
-          }
+        chart.responsive.rules.push({
+            relevant: function(target) {
+                if (target.pixelWidth <= 400) {
+                    return true;
+                }
 
-          return false;
-        },
-        state: function (target, stateId) {
-          if (target instanceof am4charts.Chart) {
-            var state = target.states.create(stateId);
-            state.properties.paddingTop = 5;
-            state.properties.paddingRight = 20;
-            state.properties.paddingBottom = 5;
-            state.properties.paddingLeft = 20;
-            return state;
-          }
-          return null;
-        },
-      });
-
-      //DISPLAYING THE WHEEL OF LIFE AND THE FORM
-      let resultBlock = document.querySelector("#result-block");
-      let myWheel = document.querySelector("#chartdiv");
-      let rateHeading = document.querySelector("#rate-heading");
-      let wheelContainer = document.querySelector("#wheel-container");
-      let lastAnswers = document.querySelectorAll(".show-chart");
-      let myForm = document.querySelector("#mc_embed_signup");
-      let successSubscription = document.querySelector("#mce-success-response");
-      let allDone = document.querySelector("#all-done");
-      let formSentence = document.querySelector("#form-sentence");
-      let saveBtn = document.querySelector("#save-pdf");
-
-      saveBtn.onclick = function () {
-        window.print();
-      };
-
-      /*Add an event lister to all the possible answers(1-10) of the 
-      last question.*/
-
-      for (let i = 0; i < lastAnswers.length; i++) {
-        lastAnswers[i].addEventListener("click", function () {
-          // myForm.style.display = "block";
-          rateHeading.style.display = "none";
-          allDone.style.display = "none";
-          //formSentence.style.display = "block";
-          myWheel.style.display = "block";
-          resultBlock.style.display = "block";
+                return false;
+            },
+            state: function(target, stateId) {
+                if (target instanceof am4charts.Chart) {
+                    var state = target.states.create(stateId);
+                    state.properties.paddingTop = 5;
+                    state.properties.paddingRight = 40;
+                    state.properties.paddingBottom = 5;
+                    state.properties.paddingLeft = 40;
+                    return state;
+                }
+                return null;
+            },
         });
-      }
 
-      /*This function will run when the user clicks the subscribe button. With
-        the setTimeout function we wait for 4 seconds after the user clicks the 
-        submit button. If the submission was a success, then we will run the code inside.*/
+        //DISPLAYING THE WHEEL OF LIFE AND THE FORM
+        let resultBlock = document.querySelector("#result-block");
+        let myWheel = document.querySelector("#chartdiv");
+        let rateHeading = document.querySelector("#rate-heading");
+        let wheelContainer = document.querySelector("#wheel-container");
+        let lastAnswers = document.querySelectorAll(".show-chart");
+        let myForm = document.querySelector("#mc_embed_signup");
+        let successSubscription = document.querySelector("#mce-success-response");
+        let allDone = document.querySelector("#all-done");
+        let formSentence = document.querySelector("#form-sentence");
+        let saveBtn = document.querySelector("#save-pdf");
 
-      function subscribeButton() {
-        setTimeout(function () {
-          if (successSubscription.style.display == "block") {
-            myForm.style.display = "none";
-            myWheel.style.display = "block";
-            resultBlock.style.display = "block";
+        saveBtn.onclick = function() {
+            window.print();
+        };
 
-            wheelContainer.style.display = "none";
-            formSentence.style.display = "none";
-            allDone.style.display = "block";
-          }
-        }, 4000);
-      }
+        /*Add an event lister to all the possible answers(1-10) of the 
+        last question.*/
+
+        for (let i = 0; i < lastAnswers.length; i++) {
+            lastAnswers[i].addEventListener("click", function() {
+                myForm.style.display = "block";
+                rateHeading.style.display = "none";
+                allDone.style.display = "none";
+                formSentence.style.display = "block";
+
+
+
+            });
+        }
+
+        /*This function will run when the user clicks the subscribe button. With
+          the setTimeout function we wait for 4 seconds after the user clicks the 
+          submit button. If the submission was a success, then we will run the code inside.*/
+
+        function subscribeButton() {
+            setTimeout(function() {
+                if (successSubscription.style.display == "block") {
+                    myForm.style.display = "none";
+                    myWheel.style.display = "block";
+                    resultBlock.style.display = "block";
+
+                    wheelContainer.style.display = "none";
+                    formSentence.style.display = "none";
+                    allDone.style.display = "block";
+                }
+            }, 4000);
+        }
     </script>
     <!----------------------------------------------------------END  WHEEL OF LIFE JS CODE-------------------------------------------------------->
-  </body>
+</body>
+
 </html>
